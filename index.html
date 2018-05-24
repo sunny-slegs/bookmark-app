@@ -9,36 +9,40 @@
 </head>
 <body>
 
-  <header></header>
+  <header class=" box center teal" role="banner">
+      <h1 class="center">Bookmark App</h1>
+      <h2 class="center">Rate and Store Your Favorite Webpages</h2>
+  
+  </header>
 
   <main role="main">
-    <div class="header box center teal" role="banner" >
+    <!-- <div class="header box center teal" role="banner" >
         <h1 class="center">Bookmark App</h1>
         <h2 class="center">Rate and Store Your Favorite Webpages</h2>
-    </div>
+    </div> -->
     <div class="container box center teal">
       <div class="error-container center"></div>
       <form id="js-add-item-form" class="center resp-font">
         <div class="information-input resp-font">
           <label for="title-entry" >Title</label>
-          <input type="text" name="title" class="js-title-entry title-entry" placeholder="Medium"><br>
+          <input type="text" id="title-entry"name="title" class="js-title-entry title-entry" placeholder="Medium"><br>
           <label for="url-entry">Web Address</label>
-          <input type="url" name="url" class="js-url-entry url-entry" placeholder="http://www.medium.com"><br>
+          <input type="url" id="url-entry"name="url" class="js-url-entry url-entry" placeholder="http://www.medium.com"><br>
           <label for="description-entry">Description</label>
-          <input type="text" name="desc" class="js-description-entry description-entry"><br>
+          <input type="text" id="description-entry"name="desc" class="js-description-entry description-entry"><br>
         </div>
         <div class="rating-input">
-          <label for="rating-entry" class="resp-font">Rating:</label>
-          <label for="radio-entry" class="resp-font">1</label>
-          <input type="radio" name="rating" class="js-rating-entry rating-entry resp-font" id="1" value="1">
-          <label for="radio-entry" class="resp-font">2</label>
-          <input type="radio" name="rating" class="js-rating-entry rating-entry resp-font" id="2" value="2">
-          <label for="radio-entry" class="resp-font">3</label>
-          <input type="radio" name="rating" class="js-rating-entry rating-entry resp-font" id="3" value="3">
-          <label for="radio-entry" class="resp-font">4</label>
-          <input type="radio" name="rating" class="js-rating-entry rating-entry resp-font" id="4" value="4">
-          <label for="radio-entry"class="resp-font">5</label>
-          <input type="radio" name="rating" class="js-rating-entry rating-entry resp-font" id="5" value="5">
+          <label id="rating" class="resp-font">Rating:</label>
+          <label for="radio-entry-1" class="resp-font">1</label>
+          <input type="radio" id="radio-entry-1" aria-labelledby="rating radio-entry-1" name="rating" class="js-rating-entry rating-entry resp-font" id="1" value="1">
+          <label for="radio-entry-2" class="resp-font">2</label>
+          <input type="radio" id="radio-entry-2" aria-labelledby="rating radio-entry-2" name="rating" class="js-rating-entry rating-entry resp-font" id="2" value="2">
+          <label for="radio-entry-3" class="resp-font">3</label>
+          <input type="radio" id="radio-entry-3" aria-labelledby="rating radio-entry-3" name="rating" class="js-rating-entry rating-entry resp-font" id="3" value="3">
+          <label for="radio-entry-4" class="resp-font">4</label>
+          <input type="radio" name="rating" aria-labelledby="rating radio-entry-4" id="radio-entry-4" class="js-rating-entry rating-entry resp-font" id="4" value="4">
+          <label for="radio-entry-5" class="resp-font">5</label>
+          <input type="radio" id="radio-entry-5" aria-labelledby="rating radio-entry-5" name="rating" class="js-rating-entry rating-entry resp-font" id="5" value="5">
         </div>
         <div class="submit-form">
           <button type="submit" class="submit">Add Bookmark</button>
@@ -46,7 +50,7 @@
       </form>
       <div class="rating-filter-dropdown center resp-font">
         <label for="filter-by-min-rating">Filter by Minimum Rating</label><br>
-        <select name="filter-by-min-rating" class="js-filter-by-min-rating filter-by-min-rating">
+        <select name="filter-by-min-rating" id="filter-by-min-rating" class="js-filter-by-min-rating filter-by-min-rating">
           <option value="1" selected="selected">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

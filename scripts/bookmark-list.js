@@ -3,6 +3,17 @@
 
 const bookmarkList = (function() {
 
+  // function handleEditItemButton() {
+  //   $('.js-bookmark-list').on('click', 'js-bookmark-edit', function(event) {
+  //     event.preventDefault();
+  //     const id = getIdFromElement(event.currentTarget);
+  //     const newName = $('.js-bookmark.edit').val();
+  //     console.log(id);
+  //     console.log(newName);
+      
+  //   });
+  // }
+
   function handleFilterSelector() {
     $('.js-filter-by-min-rating').on('change', function() {
       const ratingValue = $('.js-filter-by-min-rating option:selected').text();
@@ -67,28 +78,35 @@ const bookmarkList = (function() {
   const generateBookmarkElement = function(bookmark) {
    
     let htmlElement = '';
-    htmlElement += ` <li class="bookmark" data-item-id="${bookmark.id}">
-    <p class="title">${bookmark.title}</p>`;
     
     if (store.showMore.includes(bookmark.id)) {
-      htmlElement += `<a href="${bookmark.url}">Visit Website</a>
-      <p class="bookmark-description">${bookmark.desc}</p>
+      htmlElement += `<li class="bookmark" data-item-id="${bookmark.id}">
+      <input name="title" value="${bookmark.title}" class="bookmark-title js-bookmark-title"></input>
+      <input name="description" class="bookmark-description js-bookmark-sdescription" value="${bookmark.desc}"></input>
+      <a href="${bookmark.url}">Visit Website</a>
       <span class="rating-info">Rating: ${bookmark.rating}</span><br>
     <form class="item-edit-form">
       <div class="bookmark-controls">
         <label for="show-less-checkbox">Show less</label>
         <input type="checkbox" name="show-less-checkbox" class="js-show-less-checkbox show-less-checkbox"><br>
+        </button>
         <button class="js-bookmark-delete bookmark-delete">
           <span class="button-label">Delete</span>
         </button>
+        <button class="js-bookmark-edit bookmark-edit">
+        <span class="button-label">Save Edit</span>
+      </button>
       </div>
   </li>`;
     } else {
-      htmlElement += `<span class="rating-info">Rating: ${bookmark.rating}</span><br>
+      htmlElement += `<li class="bookmark" data-item-id="${bookmark.id}">
+      <p class="title">${bookmark.title}</p>
+      <span class="rating-info">Rating: ${bookmark.rating}</span><br>
     <form class="item-edit-form">
       <div class="bookmark-controls">
         <label for="show-more-checkbox">Show More</label>
         <input type="checkbox" name="show-more-checkbox" class="js-show-more-checkbox show-more-check-box"><br>
+        </button>
         <button class="js-bookmark-delete bookmark-delete">
           <span class="button-label">Delete</span>
         </button>
@@ -161,6 +179,7 @@ const bookmarkList = (function() {
     handleShowMoreCheckbox();
     handleShowLessCheckbox();
     handleFilterSelector();
+    //handleEditItemButton();
 
   }
 
