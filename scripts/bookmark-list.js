@@ -3,16 +3,18 @@
 
 const bookmarkList = (function() {
 
-  // function handleEditItemButton() {
-  //   $('.js-bookmark-list').on('click', 'js-bookmark-edit', function(event) {
-  //     event.preventDefault();
-  //     const id = getIdFromElement(event.currentTarget);
-  //     const newName = $('.js-bookmark.edit').val();
-  //     console.log(id);
-  //     console.log(newName);
+  function handleEditItemButton() {
+    $('.js-bookmark-list').on('click', ('.js-bookmark-edit'), event => {
+      event.preventDefault();
+      const id = getIdFromElement(event.currentTarget);
+      const newName = $('.js-bookmark-title').val();
+      const newDesc = $('.js-bookmark-description').val();
+      console.log(id);
+      console.log(newName);
+      console.log(newDesc);
       
-  //   });
-  // }
+    });
+  }
 
   function handleFilterSelector() {
     $('.js-filter-by-min-rating').on('change', function() {
@@ -82,7 +84,7 @@ const bookmarkList = (function() {
     if (store.showMore.includes(bookmark.id)) {
       htmlElement += `<li class="bookmark" data-item-id="${bookmark.id}">
       <input name="title" value="${bookmark.title}" class="bookmark-title js-bookmark-title"></input>
-      <input name="description" class="bookmark-description js-bookmark-sdescription" value="${bookmark.desc}"></input>
+      <input name="description" class="bookmark-description js-bookmark-description" value="${bookmark.desc}"></input>
       <a href="${bookmark.url}">Visit Website</a>
       <span class="rating-info">Rating: ${bookmark.rating}</span><br>
     <form class="item-edit-form">
@@ -179,7 +181,7 @@ const bookmarkList = (function() {
     handleShowMoreCheckbox();
     handleShowLessCheckbox();
     handleFilterSelector();
-    //handleEditItemButton();
+    handleEditItemButton();
 
   }
 
