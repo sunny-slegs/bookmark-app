@@ -9,10 +9,19 @@ const bookmarkList = (function() {
       const id = getIdFromElement(event.currentTarget);
       const newName = $('.js-bookmark-title').val();
       const newDesc = $('.js-bookmark-description').val();
-      console.log(id);
-      console.log(newName);
-      console.log(newDesc);
-      
+      const newItem = {title: newName, desc: newDesc};
+
+      api.editBookmark(id, newItem, 
+        (editedBookmark) => {
+          store.editBookmark(id, editedBookmark);
+          render();
+        },
+        (err) => {
+          $('.error-container').html('There seems to be a problem with the server.  Please try again.');
+          console.log(err);
+          store.setError(err);
+          render();
+        });
     });
   }
 
@@ -164,7 +173,7 @@ const bookmarkList = (function() {
             render();
           },
           (err) => {
-            ('.error-container').html('There seems to be a problem with the server.  Please try again.');
+            $('.error-container').html('There seems to be a problem with the server.  Please try again.');
             console.log(err);
             store.setError(err);
             render();

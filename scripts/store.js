@@ -26,6 +26,14 @@ const store = (function() {
     store.showMore.splice(idIndex, 1);
   };
 
+  const editBookmark = function (id, newItem) {
+    this.bookmarks = this.bookmarks.map(bookmark => 
+    {if (bookmark.id === id) {
+      return Object.assign(bookmark, newItem);
+    }
+    });
+  };
+
   
   return {
     bookmarks: [],
@@ -37,6 +45,7 @@ const store = (function() {
     filterRating: 1,
     addIdToShowMoreArray,
     removeIdFromShowMoreArray,
+    editBookmark,
   
     
 

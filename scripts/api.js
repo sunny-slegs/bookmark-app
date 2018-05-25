@@ -29,10 +29,24 @@ const api = (function() {
     });
   };
 
+  const editBookmark = function(id, editedData, onSuccess, onError) {
+    const newDataJSON = JSON.stringify(editedData);
+
+    $.ajax({
+      url: BASE_URL + id,
+      method: 'PATCH',
+      contentType: 'application/json',
+      data: newDataJSON,
+      success: onSuccess,
+      error: onError,
+    });
+  };
+
   return {
     getBookmarks,
     createBookmark,
     deleteBookmark,
+    editBookmark,
   };
 
 }());
